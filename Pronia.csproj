@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\ProniaAdminPanel\Data\" />
+    <Folder Include="Areas\ProniaAdminPanel\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\template\.DS_Store" />
+    <None Include="wwwroot\template\documentation\.DS_Store" />
+    <None Include="wwwroot\template\fonts\.DS_Store" />
+    <None Include="wwwroot\template\fonts\Roboto\.DS_Store" />
+    <None Include="wwwroot\template\images\.DS_Store" />
+    <None Include="wwwroot\template\images\auth\.DS_Store" />
+    <None Include="wwwroot\template\images\faces\.DS_Store" />
+    <None Include="wwwroot\template\js\.DS_Store" />
+    <None Include="wwwroot\template\pages\.DS_Store" />
+    <None Include="wwwroot\template\pages\charts\.DS_Store" />
+    <None Include="wwwroot\template\pages\forms\.DS_Store" />
+    <None Include="wwwroot\template\pages\icons\.DS_Store" />
+    <None Include="wwwroot\template\pages\samples\.DS_Store" />
+    <None Include="wwwroot\template\pages\tables\.DS_Store" />
+    <None Include="wwwroot\template\pages\ui-features\.DS_Store" />
+    <None Include="wwwroot\template\scss\.DS_Store" />
+    <None Include="wwwroot\template\scss\components\.DS_Store" />
+    <None Include="wwwroot\template\scss\mixins\.DS_Store" />
+    <None Include="wwwroot\template\vendors\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

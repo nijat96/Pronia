@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Pronia.Entities.Category>
+
+<div class="content-wrapper">
+
+         
+    <div class="row">
+        <div class="col-md-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <p class="card-title">Categories</p>
+                        <a href="ProniaAdminPanel/Category/Create" class="btn btn-danger">Test</a>
+                        <a asp-controller="Category" asp-action="Create" class="btn btn-success">Create Category</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="recent-purchases-listing" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Created At</th>
+                                    <th>Status</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var category in Model)
+                                {
+                                <tr>
+                                    <td>@category.Id</td>   
+                                    <td>@category.Name</td>
+                                    <td>@category.CreatedAt</td>
+                                    <td>@(category.IsDeleted ? "Deleted" : "Active")</td>
+                                        <td>
+                                            <a asp-area="ProniaAdminPanel" asp-controller="Category" asp-action="Update" asp-route-id="@category.Id" class="btn btn-primary">Update</a>
+                                        </td>
+                                        <td>
+                                            <a asp-area="ProniaAdminPanel" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-danger">Delete</a>
+                                        </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
