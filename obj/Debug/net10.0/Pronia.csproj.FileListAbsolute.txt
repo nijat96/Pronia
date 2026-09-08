@@ -441,3 +441,4 @@ C:\Users\nijat\Desktop\Pronia\obj\Debug\net10.0\compressed\h2sq04uoh4-{0}-qgsazq
 C:\Users\nijat\Desktop\Pronia\obj\Debug\net10.0\compressed\1a6ph0z8qz-{0}-xtdfc48gxy-xtdfc48gxy.gz
 C:\Users\nijat\Desktop\Pronia\obj\Debug\net10.0\compressed\43dsmz1yjs-{0}-ezqx2lv87u-ezqx2lv87u.gz
 C:\Users\nijat\Desktop\Pronia\obj\Debug\net10.0\compressed\ui530zxljm-{0}-5uimphqlew-5uimphqlew.gz
+C:\Users\nijat\Desktop\Pronia\obj\Debug\net10.0\Pronia.sourcelink.json
