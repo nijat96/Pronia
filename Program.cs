@@ -17,12 +17,13 @@ namespace Pronia
             app.UseStaticFiles();
 
             app.MapControllerRoute(
+                "admin",
+                "{area:exists}/{controller=dashboard}/{action=Index}/{id?}"
+                );
+
+            app.MapControllerRoute(
                 "default",
                 "{controller=Home}/{action=Index}/{id?}"
-                );
-            app.MapControllerRoute(
-                "areas",
-                "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
                 );
 
             app.Run();

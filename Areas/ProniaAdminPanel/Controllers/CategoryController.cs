@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
+using Pronia.Areas.ProniaAdminPanel.ViewModels.Category;
 using Pronia.DAL;
 using Pronia.Entities;
 
@@ -21,11 +24,29 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Category category)
+        public async Task<IActionResult> Create(CreateCategoryVM categoryVM)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(categoryVM);
+            }
+
+            bool existCategory = await _context.Categories.AnyAsync(c=>c.Name.Trim().ToLower()==categoryVM.Name.Trim().ToLower());
+
+            if (existCategory)
+            {
+                ModelState.AddModelError("Name", "Category Already Exist");
+                return View(categoryVM);
+            }
+
+            Category category = new()
+            {
+                Name = categoryVM.Name
+            };
+
             _context.Categories.Add(category);
             _context.SaveChanges();
-            return RedirectToAction("Categories");
+            return RedirectToAction(nameof(Categories));
         }
 
         [HttpGet]
