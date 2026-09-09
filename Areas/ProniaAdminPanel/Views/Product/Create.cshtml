@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Pronia.Areas.ProniaAdminPanel.ViewModels.Product.CreateProductVM
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Basic form elements</h4>
+            <p class="card-description">
+                Basic form elements
+            </p>
+            <form asp-area="ProniaAdminPanel" asp-controller="Product" asp-action="Create" method="post" class="forms-sample">
+                <div class="form-group">
+                    <label for="Name">Product Name</label>
+                    <input class="form-control" asp-for="Name" placeholder="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <input class="form-control" asp-for="Description" placeholder="Description">
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Price">Price</label>
+                    <input class="form-control" asp-for="Price" placeholder="Price">
+                    <span asp-validation-for="Price"></span>
+                </div>
+                <div class="form-group">
+                    <label for="CategoryId">Category</label>
+                    <select class="form-control" id="CategoryId" asp-for="CategoryId">
+                            @foreach (var category in Model.Categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="MainImage">Main Image</label>
+                    <input class="form-control" asp-for="MainImage" placeholder="MainImage" accept="image/*">
+                    <span asp-validation-for="MainImage"></span>
+                </div>
+                <div class="form-group">
+                    <label for="HoverImage">Hover Image</label>
+                    <input class="form-control" asp-for="HoverImage" placeholder="HoverImage" accept="image/*">
+                    <span asp-validation-for="HoverImage"></span>
+                </div>
+                <div class="form-group">
+                    <label for="AdditionalImage">Hover Image</label>
+                    <input class="form-control" asp-for="AdditionalImage" placeholder="AdditionalImage" accept="image/*">
+                    <span asp-validation-for="AdditionalImage"></span>
+                </div>
+                <div class="form-group">
+                    <label for="SKU">SKU</label>
+                    <input type="text" class="form-control" placeholder="SKU" asp-for="SKU">
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">Textarea</label>
+                    <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

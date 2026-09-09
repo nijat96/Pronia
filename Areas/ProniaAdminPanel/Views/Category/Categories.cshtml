@@ -27,6 +27,7 @@
                                     <th>Status</th>
                                     <th>Update</th>
                                     <th>Delete</th>
+                                    <th>Restore</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,7 +42,16 @@
                                             <a asp-area="ProniaAdminPanel" asp-controller="Category" asp-action="Update" asp-route-id="@category.Id" class="btn btn-primary">Update</a>
                                         </td>
                                         <td>
-                                            <a asp-area="ProniaAdminPanel" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-danger">Delete</a>
+                                            @if (!category.IsDeleted)
+                                            {
+                                                <a asp-area="ProniaAdminPanel" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-danger">Delete</a>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (category.IsDeleted)
+                                            {
+                                                <a asp-area="ProniaAdminPanel" asp-controller="Category" asp-action="Restore" asp-route-id="@category.Id" class="btn btn-success">Restore</a>
+                                            }
                                         </td>
                                 </tr>
                                 }

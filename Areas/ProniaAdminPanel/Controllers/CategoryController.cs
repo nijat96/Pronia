@@ -11,9 +11,9 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
     public class CategoryController(AppDbContext _context) : Controller
     {
         [HttpGet]
-        public IActionResult Categories()
+        public async Task<IActionResult> Categories()
         {
-            var categories = _context.Categories.ToList();
+            var categories = await _context.Categories.ToListAsync();
             return View(categories);
         }
 
@@ -31,7 +31,7 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
                 return View(categoryVM);
             }
 
-            bool existCategory = await _context.Categories.AnyAsync(c=>c.Name.Trim().ToLower()==categoryVM.Name.Trim().ToLower());
+            bool existCategory = await _context.Categories.AnyAsync(c => c.Name.Trim().ToLower() == categoryVM.Name.Trim().ToLower());
 
             if (existCategory)
             {
@@ -45,46 +45,74 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
             };
 
             _context.Categories.Add(category);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Categories));
         }
 
         [HttpGet]
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
-            var category = _context.Categories.Find(id);
+            var category = await _context.Categories.FindAsync(id);
             if (category == null)
             {
                 return NotFound();
             }
-            return View(category);
+
+            UpdateCategoryVM updateCategoryVM = new()
+            {
+                Id = category.Id,
+                Name = category.Name
+            };
+            return View(updateCategoryVM);
         }
 
         [HttpPost]
-        public IActionResult Update(int id, Category category)
+        public async Task<IActionResult> Update(int id, UpdateCategoryVM updateCategoryVM)
         {
-            if (id != category.Id)
+            if (!ModelState.IsValid)
+            {
+                return View(updateCategoryVM);
+            }
+            var category = await _context.Categories.FindAsync(id);
+            if (category == null)
             {
                 return NotFound();
             }
-
+            bool existCategory = await _context.Categories.AnyAsync(c => c.Name.Trim().ToLower() == updateCategoryVM.Name.Trim().ToLower());
+            if (existCategory)
+            {
+                ModelState.AddModelError("Name", "Category Already Exist");
+                return View(updateCategoryVM);
+            }
+            category.Name = updateCategoryVM.Name;
             _context.Categories.Update(category);
-            _context.SaveChanges();
-            return RedirectToAction("Categories");
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Categories));
         }
 
-        [HttpPut]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var category = _context.Categories.Find(id);
+            var category = await _context.Categories.FindAsync(id);
             if (category == null)
             {
                 return NotFound();
             }
             category.IsDeleted = true;
             _context.Categories.Update(category);
-            _context.SaveChanges();
-            return RedirectToAction("Categories");
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Categories));
+        }
+        public async Task<IActionResult> Restore(int id)
+        {
+            var category = await _context.Categories.FindAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            category.IsDeleted = false;
+            _context.Categories.Update(category);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Categories));
         }
     }
 }
