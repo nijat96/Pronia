@@ -50,8 +50,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -62,8 +70,7 @@
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\ViewModels\\Category\\CreateCategoryVM.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T19:01:07.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T19:01:07.994Z"
             },
             {
               "$type": "Document",
@@ -75,8 +82,7 @@
               "RelativeToolTip": "Entities\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T18:59:55.05Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T18:59:55.05Z"
             },
             {
               "$type": "Document",
@@ -88,8 +94,7 @@
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\Views\\Category\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-08T18:58:16.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T18:58:16.738Z"
             },
             {
               "$type": "Document",
@@ -101,8 +106,7 @@
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-08T18:50:33.741Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T18:50:33.741Z"
             },
             {
               "$type": "Document",
@@ -114,12 +118,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAkwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T18:45:05.763Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2026-09-08T18:45:05.763Z"
             },
             {
               "$type": "Document",
@@ -131,8 +130,7 @@
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\Views\\Sinaq\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-08T18:32:53.214Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T18:32:53.214Z"
             },
             {
               "$type": "Document",
@@ -144,8 +142,7 @@
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\Views\\Shared\\_AdminLayout.cshtml",
               "ViewState": "AgIAAMYAAAAAAAAAAAAAANAAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-08T18:27:49.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T18:27:49.573Z"
             },
             {
               "$type": "Document",
@@ -157,8 +154,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-08T18:23:51.917Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T18:23:51.917Z"
             },
             {
               "$type": "Document",
@@ -183,12 +179,7 @@
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\Controllers\\SinaqController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T18:32:44.002Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "WhenOpened": "2026-09-08T18:32:44.002Z"
             }
           ]
         }
