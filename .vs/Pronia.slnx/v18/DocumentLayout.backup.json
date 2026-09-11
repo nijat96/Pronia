@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\nijat\\Desktop\\Pronia\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\areas\\proniaadminpanel\\extentions\\productimageextention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|solutionrelative:areas\\proniaadminpanel\\extentions\\productimageextention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\areas\\proniaadminpanel\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|solutionrelative:areas\\proniaadminpanel\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\areas\\proniaadminpanel\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|solutionrelative:areas\\proniaadminpanel\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\areas\\proniaadminpanel\\viewmodels\\product\\createproductvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|solutionrelative:entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\areas\\proniaadminpanel\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|solutionrelative:areas\\proniaadminpanel\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,24 +34,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "ProductImageExtention.cs",
+              "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Extentions\\ProductImageExtention.cs",
+              "RelativeDocumentMoniker": "Areas\\ProniaAdminPanel\\Extentions\\ProductImageExtention.cs",
+              "ToolTip": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Extentions\\ProductImageExtention.cs",
+              "RelativeToolTip": "Areas\\ProniaAdminPanel\\Extentions\\ProductImageExtention.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-09T18:59:18.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Views\\Product\\Create.cshtml",
               "RelativeDocumentMoniker": "Areas\\ProniaAdminPanel\\Views\\Product\\Create.cshtml",
               "ToolTip": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Views\\Product\\Create.cshtml",
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\Views\\Product\\Create.cshtml",
-              "ViewState": "AgIAABcAAAAAAAAAAADwvz4AAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAADwvyQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-09T00:55:06.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T00:55:06.079Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "Entities\\Product.cs",
@@ -55,48 +75,41 @@
               "RelativeToolTip": "Entities\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T22:39:26.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2026-09-08T22:39:26.133Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "CreateProductImageVM.cs",
               "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\ViewModels\\ProductImage\\CreateProductImageVM.cs",
               "RelativeDocumentMoniker": "Areas\\ProniaAdminPanel\\ViewModels\\ProductImage\\CreateProductImageVM.cs",
               "ToolTip": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\ViewModels\\ProductImage\\CreateProductImageVM.cs",
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\ViewModels\\ProductImage\\CreateProductImageVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T23:41:48.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T23:41:48.185Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CreateProductVM.cs",
               "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\ViewModels\\Product\\CreateProductVM.cs",
               "RelativeDocumentMoniker": "Areas\\ProniaAdminPanel\\ViewModels\\Product\\CreateProductVM.cs",
               "ToolTip": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\ViewModels\\Product\\CreateProductVM.cs",
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\ViewModels\\Product\\CreateProductVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T22:41:02.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-08T22:41:02.748Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Areas\\ProniaAdminPanel\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Controllers\\ProductController.cs",
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAkwFsAAABcAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwDcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-08T21:31:19.98Z",
               "EditorCaption": ""

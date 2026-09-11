@@ -11,6 +11,10 @@ namespace Pronia.Areas.ProniaAdminPanel.ViewModels.Product
         public string? SKU { get; set; }
         public int CategoryId { get; set; }
         public List<Pronia.Entities.Category>? Categories { get; set; }
-        public List<CreateProductImageVM>? Images { get; set; }
+        public IFormFile? PrimaryImage { get; set; }
+        public IFormFile? HoverImage { get; set; }
+        public List<IFormFile>? AdditionalImages { get; set; }
+
+
     }
 }

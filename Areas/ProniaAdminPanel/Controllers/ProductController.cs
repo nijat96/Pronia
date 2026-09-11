@@ -44,62 +44,16 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
         public async Task<IActionResult> Create(CreateProductVM createProductVM)
         {
 
-            Product product = new Product
+            for(int i = 0; i < createProductVM.AdditionalImages.Count; i++)
             {
-                Name = createProductVM.Name,
-                Price = createProductVM.Price,
-                Description = createProductVM.Description,
-                SKU = createProductVM.SKU,
-                CategoryId = createProductVM.CategoryId
-            };
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-
-            if (!product.ProductImages.IsNullOrEmpty())
-            {
-                int productId = await _context.Products.OrderByDescending(p => p.Id).Select(p => p.Id).FirstOrDefaultAsync();
-
-                List<ProductImage> productImages = new List<ProductImage>();
-                
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "assets", "images", "website-images");
-                if(!Directory.Exists(path))
+                if(createProductVM.AdditionalImages[i].Length > 2 * 1024 * 1024)
                 {
-                    Directory.CreateDirectory(path);
+                    ModelState.AddModelError($"AdditionalImages[{i}]", "File size must be less than 2MB.");
+                    createProductVM.AdditionalImages.RemoveAt(i);
+                    i--;
                 }
-
-                foreach (var imageVM in createProductVM.Images)
-                {
-                    string imageName = Path.GetFileNameWithoutExtension(imageVM.Image.FileName);
-                    string uniqueImageName = $"{Guid.NewGuid()}_{imageName}";
-                    string imageExtension = Path.GetExtension(imageVM.Image.FileName);
-                    string newImageName = String.Concat(uniqueImageName, imageExtension);
-                    var imagePath = Path.Combine(path, newImageName);
-
-                    using (FileStream stream = System.IO.File.Create(imagePath))
-                    {
-                        await imageVM.Image.CopyToAsync(stream);
-                        await stream.FlushAsync();
-                    }
-
-                    ProductImage productImage = new ProductImage
-                    {
-                        IsPrimary = imageVM.IsPrimary,
-                        ProductId = productId,
-                        ImageUrl = newImageName
-                    };
-                    productImages.Add(productImage);
-                }
-                if (productImages.Count > 0 && !productImages.Any(p => p.IsPrimary == true))
-                {
-                    productImages.First().IsPrimary = true;
-                }
-                if (productImages.Count > 1 && !productImages.Any(p => p.IsPrimary == false))
-                {
-                    productImages.First(p => p.IsPrimary != true).IsPrimary = false;
-                }
-                await _context.ProductImages.AddRangeAsync(productImages);
-                await _context.SaveChangesAsync();
             }
+
 
             return View("ss");
         }
