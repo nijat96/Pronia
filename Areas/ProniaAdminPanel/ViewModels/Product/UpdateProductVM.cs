@@ -1,14 +1,13 @@
-﻿
-using Pronia.Areas.ProniaAdminPanel.ViewModels.ProductImage;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Pronia.Areas.ProniaAdminPanel.ViewModels.Product
 {
-    public class CreateProductVM
+    public class UpdateProductVM
     {
-        //[Required(ErrorMessage = "Please select a main image.")]
+        public int Id { get; set; }
+        [Required(ErrorMessage = "Please select a main image.")]
         public IFormFile? MainImage { get; set; }
-        //[Required(ErrorMessage = "Please select a hover image.")]
+        [Required(ErrorMessage = "Please select a hover image.")]
         public IFormFile? HoverImage { get; set; }
         public List<IFormFile>? AdditionalImage { get; set; }
         [Required(ErrorMessage = "Please enter a product name.")]
@@ -27,6 +26,9 @@ namespace Pronia.Areas.ProniaAdminPanel.ViewModels.Product
         [Required(ErrorMessage = "Please select a category.")]
         [Range(1, int.MaxValue, ErrorMessage = "Please select a valid category.")]
         public int CategoryId { get; set; }
+        public Pronia.Entities.Category? Category { get; set; }
         public List<Pronia.Entities.Category>? Categories { get; set; }
+        public List<Pronia.Entities.ProductImage>? ProductImages { get; set; }
+        public List<int>? DeletedImageIds { get; set; } = new List<int>();
     }
 }

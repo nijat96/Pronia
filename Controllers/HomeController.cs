@@ -17,7 +17,7 @@ namespace Pronia.Controllers
         public async Task<IActionResult> Index()
         {
             List<Slider> sliders = await _context.Sliders.Where(s => s.IsDeleted == false).OrderByDescending(s=>s.CreatedAt).ToListAsync();
-            List<Product> products= await _context.Products.Where(p=>p.IsDeleted==false).Include(p=>p.ProductImages).ToListAsync();
+            List<Product> products= await _context.Products.Where(p=>p.IsDeleted==false).Include(p=>p.ProductImages.Where(i=>i.IsPrimary != null)).ToListAsync();
 
             HomeVM homeVM = new HomeVM()
             {

@@ -1,0 +1,147 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Pronia.Areas.ProniaAdminPanel.ViewModels.Product.UpdateProductVM
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Basic form elements</h4>
+            <p class="card-description">
+                Basic form elements
+            </p>
+            <form asp-area="ProniaAdminPanel" asp-controller="Product" asp-action="Update" enctype="multipart/form-data" method="post" class="forms-sample">
+                <div class="form-group">
+                    <label for="Name">Product Name</label>
+                    <input class="form-control" asp-for="Name" placeholder="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <input class="form-control" asp-for="Description" placeholder="Description">
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Price">Price</label>
+                    <input class="form-control" asp-for="Price" placeholder="Price">
+                    <span asp-validation-for="Price"></span>
+                </div>
+                <div class="form-group">
+                    <label for="CategoryId">Category</label>
+                    <select class="form-control" id="CategoryId" asp-for="CategoryId">
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="MainImage">Change Main Image</label>
+                    <input type="file" class="form-control" asp-for="MainImage" placeholder="Main Image" accept="image/*">
+                    <span asp-validation-for="MainImage"></span>
+                </div>
+                <div class="form-group">
+                    <label for="HoverImage">Change Hover Image</label>
+                    <input type="file" class="form-control" asp-for="HoverImage" placeholder="Hover Image" accept="image/*">
+                    <span asp-validation-for="HoverImage"></span>
+                </div>
+
+                <div class="form-group d-flex flex-wrap gap-1">
+                    @foreach (var image in Model.ProductImages.Where(i => !i.IsDeleted && i.Primary==null).ToList())
+                    {
+                        <div class="mb-2 image-container" data-id="@image.Id" style="position:relative;">
+                            <input type="hidden" value="@image.Id" />
+                            <img src="~/assets/images/website-images/@image.ImageUrl"
+                                 alt="Additional Image"
+                                 style="max-width: 100px; max-height: 100px;">
+                            <button type="button"
+                                    class="btn btn-sm"
+                                    style="position:absolute; top:0; right:0;"
+                                    onclick="removeImage(@image.Id)">
+                                <i class="mdi mdi-close-circle-outline"></i>
+                            </button>
+                        </div>
+                    }
+                </div>
+
+                <!-- Silinəcək şəkillər üçün container -->
+                <div id="deletedImagesContainer"></div>
+
+                <div class="form-group">
+                    <label for="AdditionalImage">Add Additional Image</label>
+                    <input type="file" multiple class="form-control" asp-for="AdditionalImage" placeholder="Additional Image" accept="image/*">
+                    <span asp-validation-for="AdditionalImage"></span>
+                </div>
+                <div class="form-group">
+                    <label for="SKU">SKU</label>
+                    <input type="text" class="form-control" placeholder="SKU" asp-for="SKU">
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let deletedIds = [];
+
+    function removeImage(id) {
+        const container = document.querySelector(`.image-container[data-id='${id}']`);
+        if (container) {
+            // Deleted listinə əlavə et
+            if (!deletedIds.includes(id)) {
+                deletedIds.push(id);
+
+                // Hidden input əlavə et
+                const deletedContainer = document.getElementById("deletedImagesContainer");
+                const input = document.createElement("input");
+                input.type = "hidden";
+                input.name = "DeletedImageIds";
+                input.value = id;
+                input.id = "deleted-" + id;
+                deletedContainer.appendChild(input);
+            }
+
+            // UI-də boz rənglə passiv et
+            container.querySelector("img").style.opacity = "0.4";
+
+            // Recover düyməsi əlavə et
+            if (!container.querySelector(".recover-btn")) {
+                const recoverBtn = document.createElement("button");
+                recoverBtn.innerText = "Recover";
+                recoverBtn.className = "btn btn-secondary btn-sm recover-btn";
+                recoverBtn.style.position = "absolute";
+                recoverBtn.style.bottom = "0";
+                recoverBtn.style.right = "0";
+                recoverBtn.onclick = () => recoverImage(id);
+                container.appendChild(recoverBtn);
+            }
+        }
+    }
+
+    function recoverImage(id) {
+        const container = document.querySelector(`.image-container[data-id='${id}']`);
+        if (container) {
+            // Deleted listdən çıxar
+            deletedIds = deletedIds.filter(x => x !== id);
+
+            // Hidden input-u sil
+            const input = document.getElementById("deleted-" + id);
+            if (input) input.remove();
+
+            // UI-ni bərpa et
+            container.querySelector("img").style.opacity = "1";
+
+            // Recover düyməsini sil
+            const recoverBtn = container.querySelector(".recover-btn");
+            if (recoverBtn) recoverBtn.remove();
+        }
+    }
+
+</script>
