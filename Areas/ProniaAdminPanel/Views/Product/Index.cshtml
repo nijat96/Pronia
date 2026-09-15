@@ -4,7 +4,7 @@
 *@
 @{
 }
-@model ProductsVM
+@model List<ProductsVM>
 
 
 <div class="col-lg-12 grid-margin stretch-card">
@@ -25,16 +25,13 @@
                                 Name
                             </th>
                             <th>
-                                Description
-                            </th>
-                            <th>
                                 Category
                             </th>
                             <th>
                                 Price
                             </th>
                             <th>
-                                SKU
+                                Update
                             </th>
                             <th>
                                 Actions
@@ -42,26 +39,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var product in Model.Products)
+                        @foreach (var product in Model)
                         {
                             <tr>
                                 <td class="py-1">
-                                    <img src="~/assets/images/website-images/@product.ProductImages.FirstOrDefault(p => p.IsPrimary == true)?.ImageUrl" alt="image" />
+                                    <img src="~/assets/images/website-images/@product.MainImageUrl" alt="image" />
                                 </td>
                                 <td>
                                     @product.Name
                                 </td>
+
                                 <td>
-                                    @product.Description
-                                </td>
-                                <td>
-                                    @product.Category.Name
+                                    @product.CategoryName
                                 </td>
                                 <td>
                                     @product.Price
                                 </td>
+
                                 <td>
-                                    @product.SKU
+                                    <a asp-area="ProniaAdminPanel" asp-controller="Product" asp-action="Update" asp-route-id="@product.Id" class="btn btn-primary">Update</a>
                                 </td>
                                 <td>
                                     @if (product.IsDeleted)

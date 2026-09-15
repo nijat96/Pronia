@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\nijat\\Desktop\\Pronia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\areas\\proniaadminpanel\\views\\product\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|solutionrelative:areas\\proniaadminpanel\\views\\product\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\areas\\proniaadminpanel\\viewmodels\\product\\updateproductvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|solutionrelative:areas\\proniaadminpanel\\viewmodels\\product\\updateproductvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|c:\\users\\nijat\\desktop\\pronia\\areas\\proniaadminpanel\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E48867DD-E8EF-6DE4-6A96-C685069769BA}|Pronia.csproj|solutionrelative:areas\\proniaadminpanel\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -31,38 +23,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Update.cshtml",
-              "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Views\\Product\\Update.cshtml",
-              "RelativeDocumentMoniker": "Areas\\ProniaAdminPanel\\Views\\Product\\Update.cshtml",
-              "ToolTip": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Views\\Product\\Update.cshtml",
-              "RelativeToolTip": "Areas\\ProniaAdminPanel\\Views\\Product\\Update.cshtml",
-              "ViewState": "AgIAACgAAAAAAAAAAAAAAEAAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-12T17:06:43.923Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdateProductVM.cs",
-              "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\ViewModels\\Product\\UpdateProductVM.cs",
-              "RelativeDocumentMoniker": "Areas\\ProniaAdminPanel\\ViewModels\\Product\\UpdateProductVM.cs",
-              "ToolTip": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\ViewModels\\Product\\UpdateProductVM.cs",
-              "RelativeToolTip": "Areas\\ProniaAdminPanel\\ViewModels\\Product\\UpdateProductVM.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswB8AAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-11T17:33:29.617Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Areas\\ProniaAdminPanel\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\nijat\\Desktop\\Pronia\\Areas\\ProniaAdminPanel\\Controllers\\ProductController.cs",
               "RelativeToolTip": "Areas\\ProniaAdminPanel\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALcAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACsBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-11T16:24:15.147Z",
               "EditorCaption": ""

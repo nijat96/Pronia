@@ -5,9 +5,8 @@ namespace Pronia.Areas.ProniaAdminPanel.ViewModels.Product
     public class UpdateProductVM
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Please select a main image.")]
+        
         public IFormFile? MainImage { get; set; }
-        [Required(ErrorMessage = "Please select a hover image.")]
         public IFormFile? HoverImage { get; set; }
         public List<IFormFile>? AdditionalImage { get; set; }
         [Required(ErrorMessage = "Please enter a product name.")]
