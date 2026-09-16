@@ -20,7 +20,7 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
                 Name = p.Name,
                 Price = p.Price,
                 CategoryName = p.Category.Name,
-                MainImageUrl = p.ProductImages.FirstOrDefault(pi => pi.IsPrimary == true)?.ImageUrl,
+                MainImageUrl = p.ProductImages?.FirstOrDefault(pi => pi.IsPrimary == true)?.ImageUrl,
                 IsDeleted = p.IsDeleted
             }).ToList();
             return View(productsVM);
@@ -31,7 +31,7 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
             {
                 return NotFound();
             }
-            var product = await _context.Products.Include(p => p.ProductImages).FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _context.Products.Include(p => p.ProductImages).Include(p => p.Category).FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
                 return NotFound();
@@ -159,10 +159,10 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
 
         }
 
-        [HttpGet("ProniaAdminPanel/Product/Update/{id}")]
+        [HttpGet($"ProniaAdminPanel/Product/Update/id")]
         public async Task<IActionResult> Update(int id)
         {
-            Product product = await _context.Products.Include(c => c.Category).Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
+            Product? product = await _context.Products.Include(c => c.Category).Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
             if (product == null)
             {
                 return NotFound();
@@ -205,12 +205,12 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
             var categoryExists = await _context.Categories.AnyAsync(c => c.Id == updateProductVM.CategoryId);
             if (!categoryExists)
             {
-                
+
                 ModelState.AddModelError("CategoryId", "Category not found");
                 return View(updateProductVM);
             }
 
-            
+
 
             product.Name = updateProductVM.Name;
             product.Price = updateProductVM.Price;
@@ -278,22 +278,55 @@ namespace Pronia.Areas.ProniaAdminPanel.Controllers
                 TempData["AdditionalImageError"] = text;
             }
 
-            if(updateProductVM.DeletedImageIds is not null)
+            if (updateProductVM.DeletedImageIds is not null)
             {
-                foreach(var imageId in updateProductVM.DeletedImageIds)
+                foreach (var imageId in updateProductVM.DeletedImageIds)
                 {
-                    if(product.ProductImages.Any(i=> i.Id == imageId))
+                    if (product.ProductImages.Any(i => i.Id == imageId))
                     {
-                        var image = product.ProductImages.FirstOrDefault(i=> i.Id == imageId);
+                        var image = product.ProductImages.FirstOrDefault(i => i.Id == imageId);
                         image.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "website-images");
                         product.ProductImages.Remove(image);
                     }
                 }
             }
 
-            
+
             await _context.SaveChangesAsync();
 
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || id <= 0)
+            {
+                return NotFound();
+            }
+            Product? product = await _context.Products.Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            product.IsDeleted = true;
+            product.ProductImages?.ForEach(pi => pi.IsDeleted = true);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Restore(int? id)
+        {
+            if (id == null || id <= 0)
+            {
+                return NotFound();
+            }
+            Product? product = await _context.Products.Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            product.IsDeleted = false;
+            product.ProductImages?.ForEach(pi => pi.IsDeleted = false);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
     }
