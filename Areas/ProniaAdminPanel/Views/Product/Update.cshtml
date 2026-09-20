@@ -13,6 +13,7 @@
                 Basic form elements
             </p>
             <form asp-area="ProniaAdminPanel" asp-controller="Product" asp-action="Update" enctype="multipart/form-data" method="post" class="forms-sample">
+                <input type="hidden" asp-for="Id" value="@Model.Id" />
                 <div class="form-group">
                     <label for="Name">Product Name</label>
                     <input class="form-control" asp-for="Name" placeholder="Name">
