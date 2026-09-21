@@ -18,6 +18,7 @@ namespace Pronia
                 opt.Password.RequireUppercase = true;
                 opt.Password.RequiredLength = 8;
                 opt.User.RequireUniqueEmail = true;
+                opt.SignIn.RequireConfirmedEmail = true;
                 opt.Lockout.MaxFailedAccessAttempts = 3;
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();

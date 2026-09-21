@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MailKit.Net.Smtp;
+using MailKit.Security;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
+using MimeKit.Text;
 using Pronia.DAL;
 using Pronia.Entities;
 using Pronia.ViewModel.Autho;
+
 
 namespace Pronia.Controllers
 {
@@ -37,6 +42,35 @@ namespace Pronia.Controllers
                 Email = registerVM.Email
             };
             IdentityResult result = await _userManager.CreateAsync(user, registerVM.Password);
+
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+            string link = Url.Action(nameof(ConfirmedEmail), "Account" , new {userId=user.Id, token }, Request.Scheme, Request.Host.ToString());
+
+            // create email message
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("nijatnabiyev96@gmail.com"));
+            email.To.Add(MailboxAddress.Parse(user.Email));
+            email.Subject = "Test Email Subject";
+            string body = string.Empty;
+
+            using StreamReader reader = new StreamReader("wwwroot/template/verify-email.html");
+
+            body= await reader.ReadToEndAsync();
+
+            body= body.Replace("{{link}}", link);
+            body=body.Replace("{{user_name}}", user.Name);
+            body = body.Replace("{{app_name}}", "Pronia");
+            body= body.Replace("{{year}}", DateTime.Now.Year.ToString());
+
+
+            email.Body = new TextPart(TextFormat.Html) { Text = body };
+            // send email
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("nijatnabiyev96@gmail.com","sham zgkt emqd lmng");
+            smtp.Send(email);
+            smtp.Disconnect(true);
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
@@ -46,7 +80,7 @@ namespace Pronia.Controllers
                 return View(registerVM);
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(VerifyEmail));
         }
 
         [HttpGet]
@@ -92,5 +126,25 @@ namespace Pronia.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
+
+        public IActionResult VerifyEmail()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> ConfirmedEmail(string userId, string token)
+        {
+            if (userId is null || token is null) return BadRequest();
+            AppUser? user = await _userManager.FindByIdAsync(userId);
+            if (user is null) return NotFound();
+            IdentityResult result = await _userManager.ConfirmEmailAsync(user, token);
+            if (!result.Succeeded)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction(nameof(Login));
+        }
     }
 }
+
+
