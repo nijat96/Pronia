@@ -496,3 +496,7 @@ C:\Users\user\Desktop\Pronia\obj\Debug\net10.0\Pronia.pdb
 C:\Users\user\Desktop\Pronia\obj\Debug\net10.0\Pronia.genruntimeconfig.cache
 C:\Users\user\Desktop\Pronia\obj\Debug\net10.0\ref\Pronia.dll
 C:\Users\user\Desktop\Pronia\obj\Debug\net10.0\compressed\teqt77rylh-{0}-ffnpcydm2j-ffnpcydm2j.gz
+C:\Users\nijat\Desktop\Pronia\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\nijat\Desktop\Pronia\bin\Debug\net10.0\MailKit.dll
+C:\Users\nijat\Desktop\Pronia\bin\Debug\net10.0\MimeKit.dll
+C:\Users\nijat\Desktop\Pronia\obj\Debug\net10.0\compressed\teqt77rylh-{0}-h2iwjvewod-h2iwjvewod.gz
