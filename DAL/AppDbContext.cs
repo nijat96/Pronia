@@ -6,7 +6,7 @@ namespace Pronia.DAL
 {
     public class AppDbContext : IdentityDbContext<AppUser>
     {
-      
+
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -18,5 +18,9 @@ namespace Pronia.DAL
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
 
+        public DbSet<BasketItem> BasketItems { get; set; }
+
     }
+    
+
 }

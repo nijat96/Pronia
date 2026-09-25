@@ -14,6 +14,8 @@ namespace Pronia.Entities
 
         public Category Category { get; set; }
         public List<ProductImage>? ProductImages { get; set; }
-        
+
+        public List<BasketItem>? BasketItems { get; set; }
+
     }
 }

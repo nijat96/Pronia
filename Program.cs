@@ -23,7 +23,7 @@ namespace Pronia
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
-            builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Nijat")));
+            builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
                         
             var app = builder.Build();
             app.UseAuthentication();

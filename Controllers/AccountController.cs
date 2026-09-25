@@ -8,6 +8,8 @@ using MimeKit.Text;
 using Pronia.DAL;
 using Pronia.Entities;
 using Pronia.ViewModel.Autho;
+using Pronia.ViewModel.Basket;
+using System.Text.Json;
 
 
 namespace Pronia.Controllers
@@ -16,10 +18,13 @@ namespace Pronia.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        private readonly AppDbContext _context;
+
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, AppDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
 
         [HttpGet]
@@ -113,6 +118,44 @@ namespace Pronia.Controllers
             {
                 ModelState.AddModelError("", "Email or password is incorrect");
                 return View(loginVM);
+            }
+
+
+
+            string? cookie = Request.Cookies["basket"];
+
+            if (!string.IsNullOrEmpty(cookie))
+            {
+                List<BasketCookieItemVM>? cookieBasket = JsonSerializer.Deserialize<List<BasketCookieItemVM>>(cookie);
+                if (cookieBasket != null && cookieBasket.Count > 0)
+                {
+                    var userDbBasket = await _context.BasketItems
+                        .Where(b => b.AppUserId == user.Id)
+                        .ToListAsync();
+
+                    foreach(var cookieItem in cookieBasket)
+                    {
+                        var existDbItem = userDbBasket.FirstOrDefault(b => b.ProductId == cookieItem.Id);
+
+                        if (existDbItem != null)
+                        {
+                            existDbItem.Count += cookieItem.Count;
+                        }
+                        else
+                        {
+                            _context.BasketItems.Add(new BasketItem
+                            {
+                                AppUserId = user.Id,
+                                ProductId = cookieItem.Id,
+                                Count = cookieItem.Count
+                            });
+                            
+                        }
+                    }
+
+                    await _context.SaveChangesAsync();
+                    Response.Cookies.Delete("basket");
+                }
             }
             if (ReturnUrl is null)
             {
